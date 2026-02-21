@@ -1,0 +1,20 @@
+Services : 
+	web:
+		image: nginx:latest
+		container_name: web-nginx
+		ports :	
+			-"3000:80"
+		restart: always
+	monitoring:
+		image: nginx-latest
+		container: monitoring-nginx
+		ports :
+			-"9000:80"
+		restart: always
+	api:
+		image: hashicorp/http-echo
+		container: api-echo
+		command: ["-text=API HIDUP BRO"]
+		ports: 
+			-"5000:5678"
+		restart: always
